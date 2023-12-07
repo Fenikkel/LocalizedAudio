@@ -3,7 +3,7 @@
 Multi-lingual audio system.
 
 <p align="center">
-  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/eb1c716f-aae5-458c-ad9a-bfde912ddafc" alt="Art image"/>
+  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/94209c2f-d76d-4819-8a1b-1b5790a72095" alt="Art image"/>
 </p>
 
 
