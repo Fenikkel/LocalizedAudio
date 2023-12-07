@@ -47,7 +47,7 @@ namespace Fenikkel.LocalizedAudio.Example
 
             while (true)
             {
-                _Text.text = $"Playing: {_AudioSource.time.ToString()}";
+                _Text.text = $"Playing: {_AudioSource.time.ToString("F2")}";
                 yield return null;
             }
 

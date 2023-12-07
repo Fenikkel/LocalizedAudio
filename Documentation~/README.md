@@ -1,9 +1,9 @@
-# Localized Captions
+# Localized Audio
 
-Multi-lingual captions system that use .srt or similar as input.
+Multi-lingual audio system.
 
 <p align="center">
-  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/eb1c716f-aae5-458c-ad9a-bfde912ddafc" alt="Art image"/>
+  <img src="https://github.com/Fenikkel/LocalizedCaptions/assets/41298931/94209c2f-d76d-4819-8a1b-1b5790a72095" alt="Art image"/>
 </p>
 
 
@@ -11,29 +11,33 @@ Multi-lingual captions system that use .srt or similar as input.
 &nbsp;
 ## Usage
 1. Make sure you have a LocalizationSettings.
-2. Create an AssetTableCollection for your subtitles.
-3. Create an entry to drag your subtitle files on it.
-4. Drag and drop the LocalizedCaptions.prefab to any scene. Go to the LocalizedCaptionsController attached to the captions text and set your desired configuration.
-5. To play the captions, you can make an static call from any script: 
+2. Create an AssetTableCollection for your audios.
+3. Create an entry to drag your audio clips on it.
+4. Drag and drop the LocalizedAudio.prefab to any scene.
+5. To play the audio, you can make an static call from any script: 
 
 ```
-    LocalizedTextAsset localizedTextAsset;
-    LocalizedCaptionsController.Play(localizedTextAsset);
+    LocalizedAudioClip localizedAudioClip;
+    LocalizedAudioController.Play(localizedAudioClip);
 ```
-6. Preload your LocalizedTextAssed for skip loading deleays:
+6. Preload your LocalizedAudioClip for skip loading deleays:
 ```
-    LocalizedTextAsset localizedTextAsset;
-    LocalizedCaptionsController.Preload(localizedTextAsset);
+    LocalizedAudioClip localizedAudioClip;
+    LocalizedAudioController.Preload(localizedAudioClip);
+```
+7. Stop any active audio with:
+```
+    LocalizedAudioController.Stop();
 ```
 
 &nbsp;
 ## Installation
 Add the custom package to your project via:
-- [Unity Asset Store](https://u3d.as/3c32)
+- [Unity Asset Store](https://u3d.as/3cdP)
 
 or
 
-- Package Manager -> + -> Add package from git URL -> https://github.com/Fenikkel/LocalizedCaptions.git
+- Package Manager -> + -> Add package from git URL -> https://github.com/Fenikkel/LocalizedAudio.git
 
 
 <p align="center">
@@ -44,10 +48,7 @@ or
 &nbsp;
 ## Technical details
 
-Supported captions file:
-- SubRip Subtitle (.srt)
-
-_More file formats coming soon_
+- [Supported audio files](https://docs.unity3d.com/2023.3/Documentation/Manual/AudioFiles.html)
 
 &nbsp;
 ## Compatibility
@@ -59,7 +60,6 @@ _More file formats coming soon_
 - [Localization](https://docs.unity3d.com/Packages/com.unity.localization@1.4/manual/index.html)
 - [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@2.0/manual/index.html)
 - [TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html)
-- [Captions File Parser](https://u3d.as/3bXj)
 
 &nbsp;
 ## Support
