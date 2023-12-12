@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Localization.Settings;
@@ -73,17 +70,11 @@ public class LocalizedAudioController : MonoBehaviour
 
     public Coroutine PreloadAudio(LocalizedAudioClip localizedAudioClip)
     {
-        if (localizedAudioClip == null || localizedAudioClip.IsEmpty)
-        {
-            Debug.LogWarning($"Empty <b>LocalizedAudioAsset</b> variable.");
-            return null;
-        }
-
         if (_PreloadCoroutine != null)
         {
             StopCoroutine(_PreloadCoroutine);
             _PreloadCoroutine = null;
-            Debug.LogWarning("Another preload was on course");
+            Debug.LogWarning("Localized Audio: Another preload was on course.");
         }
 
         _PreloadCoroutine = StartCoroutine(PreloadAudioCoroutine(localizedAudioClip));
@@ -93,7 +84,15 @@ public class LocalizedAudioController : MonoBehaviour
 
     private IEnumerator PreloadAudioCoroutine(LocalizedAudioClip localizedAudioClip)
     {
+        if (localizedAudioClip == null || localizedAudioClip.IsEmpty)
+        {
+            Debug.LogWarning($"Empty <b>LocalizedAudioAsset</b> variable.");
+            _PreloadCoroutine = null;
+            yield break;
+        }
+
         _LocalizeAudioClipEvent.AssetReference = localizedAudioClip;
+
 
         // CurrentLoadingOperationHandle.Status --> None
         yield return new WaitUntil(() => localizedAudioClip.CurrentLoadingOperationHandle.IsDone);
@@ -104,6 +103,8 @@ public class LocalizedAudioController : MonoBehaviour
         SharedTableData.SharedTableEntry sharedTableEntry = assetTable.SharedData.GetEntryFromReference(localizedAudioClip.TableEntryReference);
         string entryName = sharedTableEntry != null ? sharedTableEntry.Key : null;
         string tableCollectionName = localizedAudioClip.TableReference.TableCollectionName;
+
+        
 
         try
         {
